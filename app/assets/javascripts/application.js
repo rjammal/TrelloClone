@@ -15,6 +15,7 @@
 //= require jquery.ui.all
 //= require underscore
 //= require backbone
+//= require serializeJSON
 //= require bootstrap
 //= require trello_clone
 //= require_tree ../templates
