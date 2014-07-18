@@ -2,6 +2,6 @@
 
 <ul>
     <% boards.each( function (board) { %>
-        <li><%= board.get('title') %></li>
+        <li><a href="#boards/<%= board.id %>"><%= board.get('title') %></a></li>
     <% }) %>
 </ul>

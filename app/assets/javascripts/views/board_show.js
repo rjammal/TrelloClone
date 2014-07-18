@@ -1,15 +1,16 @@
-TrelloClone.Views.BoardShow = Backbone.View.extend({
+TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     
     initialize: function (options) {
         this.listenTo(this.model, "change sync", this.render);
+        this.model.fetch();
     },
 
     template: JST["board_show"], 
 
     render: function () {
-        this.model.fetch();
         var renderedContent = this.template({ board: this.model });
         this.$el.html(renderedContent);
+
         return this;
     }
 });
