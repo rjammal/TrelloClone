@@ -1,7 +1,7 @@
 TrelloClone.Views.ListShowItem = Backbone.View.extend({
 
     initialize: function (options) {
-        this.listenTo(this.model, "change", this.render);
+        this.listenTo(this.model, "change sync", this.render);
     }, 
 
     template: JST["list_show_item"], 
