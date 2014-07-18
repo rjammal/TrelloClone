@@ -7,7 +7,7 @@ TrelloClone.Collections.BoardLists = Backbone.Collection.extend({
     }, 
 
     initialize: function (options) {
-        // this.board = options.board;
+        this.board = options.board;
     }
     
 });

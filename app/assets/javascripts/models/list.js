@@ -1,5 +1,7 @@
 TrelloClone.Models.List = Backbone.Model.extend({
 
-    rootUrl: "api/lists", 
+    urlRoot: function () {
+        return "api/boards/" + this.get('board_id') + "/lists"
+    } 
 
 });
