@@ -19,11 +19,19 @@ TrelloClone.Views.BoardNew = Backbone.View.extend({
     saveBoard: function (event) {
         event.preventDefault();
         var formData = $('form').serializeJSON();
-        var board = this.board;
+        var newView = this;
         this.board.save(formData, {
             success: function () {
-                TrelloClone.boards.add(board);
-                Backbone.history.navigate("#", {trigger: true}); 
+                TrelloClone.boards.add(newView.board);
+                newView.model = new TrelloClone.Models.Board();
+                newView.$(".errors").empty();
+            }, 
+            error: function (model, response) {
+                var errors = response.responseJSON;
+                var errorString = errors.map(function (error) {
+                    return "<li>" + error + "</li>";
+                }).join("");
+                newView.$(".errors").html("<ul>" + errorString + "</ul>");
             }
         });
     }
