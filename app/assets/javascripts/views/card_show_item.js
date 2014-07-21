@@ -2,7 +2,7 @@ TrelloClone.Views.CardShowItem = Backbone.View.extend({
 
     tagName: "li", 
 
-    className: "col-xs-12 ui-sortable list-group-item",
+    className: "col-xs-12 list-group-item ui-state-default",
 
     template: JST["card_show_item"], 
 
