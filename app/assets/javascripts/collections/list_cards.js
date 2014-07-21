@@ -5,5 +5,5 @@ TrelloClone.Collections.ListCards = Backbone.Collection.extend({
         this.list = options.list;
     }, 
 
-    // comparator: 
+    comparator: "ord"
 });

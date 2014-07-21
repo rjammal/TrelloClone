@@ -17,7 +17,7 @@ TrelloClone.Views.ListShowItem = Backbone.CompositeView.extend({
 
     tagName: "li", 
 
-    className: "col-xs-2 list-group-item ui-state-default",
+    className: "col-xs-2 list-group-item ui-state-default lists",
 
     render: function () {
         var renderedContent = this.template({ list: this.model });

@@ -9,9 +9,9 @@ l1 = b1.lists.create(title: 'todo')
 l2 = b1.lists.create(title: 'doing')
 l3 = b1.lists.create(title: 'done')
 
-c1 = l3.cards.create(title: 'squats', description: 'feel the burn')
-c2 = l3.cards.create(title: 'pushups', description: 'ooh ouch')
-c3 = l3.cards.create(title: 'situps', description: 'ouchy')
+c1 = l3.cards.create(title: 'squats', description: 'feel the burn', ord: 3)
+c2 = l3.cards.create(title: 'pushups', description: 'ooh ouch', ord: 2)
+c3 = l3.cards.create(title: 'situps', description: 'ouchy', ord: 1)
 
 c4 = l1.cards.create(title: 'squats', description: 'feel the burn')
 c5 = l1.cards.create(title: 'pushups', description: 'ooh ouch')
