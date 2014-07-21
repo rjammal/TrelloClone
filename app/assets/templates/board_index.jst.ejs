@@ -3,6 +3,7 @@
 <ul>
     <% boards.each( function (board) { %>
         <li><a href="#boards/<%= board.id %>"><%= board.escape('title') %></a></li>
+        <button class="delete" data-board-id="<%= board.id %>">Delete</button>
     <% }) %>
 </ul>
 

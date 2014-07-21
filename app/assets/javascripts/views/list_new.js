@@ -7,7 +7,7 @@ TrelloClone.Views.ListNew = Backbone.View.extend({
     template: JST["list_new"], 
 
     render: function () {
-        var renderedContent = this.template({ list: this.model })
+        var renderedContent = this.template();
         this.$el.html(renderedContent);
         return this;
     },
@@ -16,14 +16,14 @@ TrelloClone.Views.ListNew = Backbone.View.extend({
         event.preventDefault();
         var formData = $('form').serializeJSON();
         var newListView = this;
-        this.model.save( formData, {
+        var list = new TrelloClone.Models.List(formData);
+        list.set("board_id", this.model.get("id"));
+        list.save( formData, {
             success: function () {
-                var boardID = newListView.model.get("board_id");
-                var board = TrelloClone.boards.getOrFetch(boardID)
-                board.lists().add(newListView.model);
-                newListView.model = new TrelloClone.Models.List({ board_id: boardID })
-                newListView.$('form').find("input").val("");
-                newListView.$('.errors').empty();
+                newListView.model.lists().add(list);
+                // newListView.$('form').find("input").val("");
+                // newListView.$('.errors').empty();
+                newListView.render();
             }, 
             error: function (model, response) {
                 var htmlResponse = "<ul>";
