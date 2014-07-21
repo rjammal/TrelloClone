@@ -15,6 +15,8 @@
 //= require jquery.ui.all
 //= require underscore
 //= require backbone
+//= require trello_clone
+//= require jquery.ui.sortable
 //= require serializeJSON
 //= require bootstrap
 //= require trello_clone

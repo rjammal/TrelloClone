@@ -1,7 +1,7 @@
 <h1><%= board.escape('title') %></h1>
 
 <h2>Lists</h2>
-<ul id="lists">
+<ul id="lists" class="container-fluid list-group ui-sortable">
 </ul>
 
 <div id="create-new-list">
@@ -9,3 +9,10 @@
 
 <br>
 <a href="#">Back to Index</a>
+
+<script type="text/javascript">
+$(function () {
+    $('#lists').sortable();
+    $(".cards").sortable();
+});
+</script>
