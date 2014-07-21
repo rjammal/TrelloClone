@@ -1,4 +1,4 @@
-TrelloClone.Views.ListNew = Backbone.View.extend({
+TrelloClone.Views.ListNew = Backbone.FormView.extend({
 
     events: {
         "click #save-list": "saveList"
@@ -21,18 +21,9 @@ TrelloClone.Views.ListNew = Backbone.View.extend({
         list.save( formData, {
             success: function () {
                 newListView.model.lists().add(list);
-                // newListView.$('form').find("input").val("");
-                // newListView.$('.errors').empty();
                 newListView.render();
             }, 
-            error: function (model, response) {
-                var htmlResponse = "<ul>";
-                htmlResponse += response.responseJSON.map(function (error) {
-                    return "<li>" + error + "</li>";
-                }).join("");
-                htmlResponse += "</ul>";
-                newListView.$(".errors").html(htmlResponse);
-            }
+            error: this.addErrorsFn()
         });
     }
 });

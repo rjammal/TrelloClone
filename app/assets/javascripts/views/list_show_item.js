@@ -1,4 +1,4 @@
-TrelloClone.Views.ListShowItem = Backbone.View.extend({
+TrelloClone.Views.ListShowItem = Backbone.CompositeView.extend({
 
     initialize: function (options) {
         this.listenTo(this.model, "change sync", this.render);
@@ -15,6 +15,10 @@ TrelloClone.Views.ListShowItem = Backbone.View.extend({
     render: function () {
         var renderedContent = this.template({ list: this.model });
         this.$el.html(renderedContent);
+
+        //attach new view
+        var newCardView = new TrelloClone.Views.CardNew({ model: this.model })
+        this.$("#new-card-form")
         return this;
     }, 
 
