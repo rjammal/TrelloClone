@@ -31,7 +31,7 @@ TrelloClone.Views.ListShowItem = Backbone.CompositeView.extend({
         this.$el.html(renderedContent);
         this.attachSubviews();
 
-        //esure this code runs after element is on page by setting timeout
+        //ensure this code runs after element is on page by setting timeout
         var view = this;
         setTimeout( 
             function () {
