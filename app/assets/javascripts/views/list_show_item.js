@@ -11,7 +11,8 @@ TrelloClone.Views.ListShowItem = Backbone.CompositeView.extend({
 
     events: {
         "click .delete": "deleteList", 
-        "sortupdate .cards": "setCardOrd"
+        "sortupdate .cards": "setCardOrd", 
+        "receive .cards": "setCardOrd"
     },
 
     template: JST["list_show_item"], 
@@ -48,11 +49,13 @@ TrelloClone.Views.ListShowItem = Backbone.CompositeView.extend({
     },
 
     setCardOrd: function (event, ui) {
+        var listView = this;
         var $cards = this.$('.cards').children();
         $cards.each( function (index) {
             var card = new TrelloClone.Models.Card({ 
                 id: $(this).data("card-id"), 
-                ord: index
+                ord: index, 
+                list_id: listView.model.get("id")
             });
             card.save();
         });
